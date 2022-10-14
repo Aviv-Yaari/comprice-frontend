@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import GlobalStyle from './styles/GlobalStyle.styled';
+import styled from 'styled-components';
+import ProductList from './pages/ProductList';
 
-function App() {
+const MainContainer = styled.div`
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  height: 100vh;
+`;
+
+const MainContent = styled.main`
+  padding: 1em;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainContainer>
+      <GlobalStyle />
+      <Navbar />
+      <MainContent>
+        <ProductList />
+      </MainContent>
+    </MainContainer>
   );
-}
+};
 
 export default App;
