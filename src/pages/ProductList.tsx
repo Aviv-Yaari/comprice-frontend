@@ -35,8 +35,7 @@ const ProductList: React.FC = () => {
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell>ID</TableCell>
-              <TableCell>תמונה</TableCell>
+              <TableCell></TableCell>
               <TableCell>מוצר</TableCell>
               <TableCell>רשת</TableCell>
               <TableCell>חנות</TableCell>
@@ -73,25 +72,40 @@ const Row: React.FC<RowProps> = ({ product }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <TableRow>
-      <TableCell>
-        <IconButton
+    <React.Fragment>
+      <TableRow>
+        <TableCell>
+          <IconButton
             aria-label="expand row"
             size="small"
             onClick={() => setOpen(!isOpen)}
           >
-          {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-        </IconButton>
-      </TableCell>
-      <TableCell>{product.item_code}</TableCell>
-      <TableCell><img src='https://st1.foodsd.co.il/Images/Products/large/LRu1P1vbNx8f6XtK.JPG' height="50px"/></TableCell>
-      <TableCell>{product.manufacturer_item_description}</TableCell>
-      <TableCell>{product.chain_name}</TableCell>
-      <TableCell>{product.store_name}</TableCell>
-      <TableCell>{product.item_price}</TableCell>
-      <TableCell>{product.item_price}</TableCell>
-      <TableCell>{product.price_update_date}</TableCell>
-    </TableRow>
+            {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        <TableCell><img src='https://st1.foodsd.co.il/Images/Products/large/LRu1P1vbNx8f6XtK.JPG' height="50px"/></TableCell>
+        <TableCell>{product.manufacturer_item_description}</TableCell>
+        <TableCell>{product.chain_name}</TableCell>
+        <TableCell>{product.store_name}</TableCell>
+        <TableCell>{product.item_price}</TableCell>
+        <TableCell>{product.item_price}</TableCell>
+        <TableCell>{product.price_update_date != undefined ? product.price_update_date.substring(0, 10) : 'Nan' }</TableCell>
+      </TableRow>
+      <TableRow style={{ backgroundColor: '#eeeeee', width: '100%' }}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
+          <Collapse in={isOpen} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              <Typography variant="h6" gutterBottom component="div">
+                #{product.item_code}
+              </Typography>
+              <Typography variant="h6" gutterBottom component="div">
+                פרטים נוספים על המוצר
+              </Typography>
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
   );
 };
 
