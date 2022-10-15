@@ -3,30 +3,21 @@ import FilterIcon from '@mui/icons-material/FilterList';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Autocomplete, Box, FormControl, InputLabel, ListSubheader, MenuItem, Select } from '@mui/material';
-import products from '../../mocks/products.json';
-import userSettings from '../../mocks/user_settings.json';
+import productsMock from '../../mocks/products.json';
+import userSettingsMock from '../../mocks/user_settings.json';
 import Product from '../../types/product';
 
-interface ProductNameAndList {
-  label?: string
-  list: string
+interface OptionForAutocomplete {
+  label: string
+  type: 'product' | 'list'
+  itemCodes: string[] | string
 }
 
-function findListForProduct (lists: Record<string, string[]>, itemCode?: string): string {
-  for (const listName in lists) {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (itemCode && Object.prototype.hasOwnProperty.call(lists, listName)) {
-      const itemCodes = lists[listName];
-      if (itemCodes.includes(itemCode)) {
-        return listName;
-      }
-    }
-  }
-  return 'No list';
-}
-
-function addListFieldToProducts (products: Product[]): ProductNameAndList[] {
-  return products.map(product => ({ label: product.item_name, list: findListForProduct(userSettings.lists, product.item_code) }));
+function createOptions (): OptionForAutocomplete[] {
+  const userLists: OptionForAutocomplete[] = userSettingsMock.lists.map(list => ({ label: list.name, type: 'list', itemCodes: list.item_codes }));
+  const products: OptionForAutocomplete[] = productsMock.map(product => ({ label: product.item_name, type: 'product', itemCodes: product.item_code }));
+  const res = userLists.concat(products);
+  return res;
 }
 
 const TableFilter: React.FC = () => {
@@ -45,16 +36,16 @@ const TableFilter: React.FC = () => {
         <Box display='flex' flexDirection='column' gap='1em' width={600}>
           <Box display='flex' gap='1em' alignItems='center'>
             <Autocomplete
-             options={addListFieldToProducts(products).sort((a, b) => -b.list.localeCompare(a.list))}
+             options={createOptions()}
              disablePortal
              renderInput={(params) => <TextField {...params} label="Name" />}
              renderOption={(props, option) => (
                <Box display='flex' component="li" {...props}>
                  <span style={{ flexGrow: 1 }}>{option.label}</span>
-                 {option.list !== 'No list' && <Button>Remove</Button>}
+                 {option.type === 'list' && <Button>Remove</Button>}
                </Box>)}
              multiple
-             groupBy={(option) => option.list}
+             groupBy={(option) => option.type === 'list' ? 'Lists' : 'All products' }
              sx={{ flexGrow: 1 }}
               />
             <Button>Create list</Button>
