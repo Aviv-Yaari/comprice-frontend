@@ -14,7 +14,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { mockDelay } from '../utils/generalUtils';
 import Product from '../types/product';
-import productsMock from '../mocks/products.json';
+import productsMock from '../mocks/products_prices.json';
 import { TablePagination } from '@mui/material';
 import TableFilter from '../components/TableFilter/TableFilter';
 
@@ -36,8 +36,13 @@ const ProductList: React.FC = () => {
             <TableRow>
               <TableCell />
               <TableCell>ID</TableCell>
+              <TableCell>תמונה</TableCell>
               <TableCell>מוצר</TableCell>
+              <TableCell>רשת</TableCell>
+              <TableCell>חנות</TableCell>
               <TableCell>מחיר</TableCell>
+              <TableCell>מבצע</TableCell>
+              <TableCell>תאריך עדכון</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -79,8 +84,13 @@ const Row: React.FC<RowProps> = ({ product }) => {
         </IconButton>
       </TableCell>
       <TableCell>{product.item_code}</TableCell>
-      <TableCell>{product.item_name}</TableCell>
+      <TableCell><img src='https://st1.foodsd.co.il/Images/Products/large/LRu1P1vbNx8f6XtK.JPG' height="50px"/></TableCell>
+      <TableCell>{product.manufacturer_item_description}</TableCell>
+      <TableCell>{product.chain_name}</TableCell>
+      <TableCell>{product.store_name}</TableCell>
       <TableCell>{product.item_price}</TableCell>
+      <TableCell>{product.item_price}</TableCell>
+      <TableCell>{product.price_update_date}</TableCell>
     </TableRow>
   );
 };
