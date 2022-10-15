@@ -1,7 +1,12 @@
+import { Button } from '@mui/material';
 import React from 'react';
 import { NavbarContainer, NavItem } from './Navbar.styled';
 
-const Navbar: React.FC = () => {
+interface Props {
+  toggleRTL: React.MouseEventHandler<HTMLButtonElement>
+}
+
+const Navbar: React.FC<Props> = ({ toggleRTL }) => {
   return (
     <NavbarContainer>
       <NavItem>Home</NavItem>
@@ -9,6 +14,7 @@ const Navbar: React.FC = () => {
       <NavItem>TBD</NavItem>
       <NavItem>TBD</NavItem>
       <NavItem>TBD</NavItem>
+      <Button onClick={toggleRTL}>RTL</Button>
     </NavbarContainer>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import GlobalStyle from './styles/GlobalStyle.styled';
 import styled from 'styled-components';
@@ -15,10 +15,16 @@ const MainContent = styled.main`
 `;
 
 const App: React.FC = () => {
+  const [isRTL, setIsRTL] = useState(false);
+
+  const toggleRTL: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setIsRTL(isRTL => !isRTL);
+  };
+
   return (
     <MainContainer>
-      <GlobalStyle />
-      <Navbar />
+      <GlobalStyle isRTL={isRTL} />
+      <Navbar toggleRTL={toggleRTL} />
       <MainContent>
         <ProductList />
       </MainContent>
