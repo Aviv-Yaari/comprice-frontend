@@ -1,37 +1,42 @@
 [
     {
-        "id": 1,
-        "name": "Aviv test",
-        "price": 333
+        "item_code": 729878639363,
+        "item_name": "כריות נוגט",
+        "manufacturer_name": "תלמה",
+        "manufacturer_coutry": "ישראל",
+        "manufacturer_item_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס.",
+        "unit_qty": "גרמים",
+        "unit_of_measure": "100 גרם",
+        "item_price": 23.90
     },
     {
-        "id": 2,
-        "name": "Aviv test",
-        "price": 333
+        "item_code": 729878639363,
+        "item_name": "כריות נוגט",
+        "manufacturer_name": "תלמה",
+        "manufacturer_coutry": "ישראל",
+        "manufacturer_item_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס.",
+        "unit_qty": "גרמים",
+        "unit_of_measure": "100 גרם",
+        "item_price": 23.90
     },
     {
-        "id": 3,
-        "name": "Aviv test",
-        "price": 333
+        "item_code": 729878639363,
+        "item_name": "כריות נוגט",
+        "manufacturer_name": "תלמה",
+        "manufacturer_coutry": "ישראל",
+        "manufacturer_item_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס.",
+        "unit_qty": "גרמים",
+        "unit_of_measure": "100 גרם",
+        "item_price": 23.90
     },
     {
-        "id": 4,
-        "name": "Aviv test",
-        "price": 333
-    },
-    {
-        "id": 5,
-        "name": "Aviv test",
-        "price": 333
-    },
-    {
-        "id": 6,
-        "name": "Aviv test",
-        "price": 333
-    },
-    {
-        "id": 7,
-        "name": "Aviv test",
-        "price": 333
+        "item_code": 729878639363,
+        "item_name": "כריות נוגט",
+        "manufacturer_name": "תלמה",
+        "manufacturer_coutry": "ישראל",
+        "manufacturer_item_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס.",
+        "unit_qty": "גרמים",
+        "unit_of_measure": "100 גרם",
+        "item_price": 23.90
     }
 ]

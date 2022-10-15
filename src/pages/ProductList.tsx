@@ -37,7 +37,7 @@ const ProductList: React.FC = () => {
           </TableHead>
           <TableBody>
             {products?.map((product) => (
-              <Row key={product.id} product={product} />
+              <Row key={product.item_code} product={product} />
             ))}
           </TableBody>
         </Table>
@@ -64,9 +64,9 @@ const Row: React.FC<RowProps> = ({ product }) => {
           {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         </IconButton>
       </TableCell>
-      <TableCell>{product.id}</TableCell>
-      <TableCell>{product.name}</TableCell>
-      <TableCell>{product.price}</TableCell>
+      <TableCell>{product.item_code}</TableCell>
+      <TableCell>{product.item_name}</TableCell>
+      <TableCell>{product.item_price}</TableCell>
     </TableRow>
   );
 };
