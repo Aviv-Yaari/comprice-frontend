@@ -12,12 +12,14 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { mockDelay } from '../utils/generalUtils';
+import Product from '../types/product';
+import productsMock from '../mocks/products.json';
 
 const ProductList: React.FC = () => {
-  const [products, setProducts] = useState<number[] | null>(null);
+  const [products, setProducts] = useState<Product[] | null>();
   useEffect(() => {
-    const mockApiDelay = new Promise(resolve => setTimeout(resolve, 2000));
-    mockApiDelay.then(() => setProducts([1, 2, 3])).catch(() => {});
+    mockDelay(2000).then(() => setProducts(productsMock)).catch(() => {});
   }, []);
 
   return (
@@ -28,16 +30,14 @@ const ProductList: React.FC = () => {
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              <TableCell>ID</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Price</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {products?.map((product) => (
-              <Row key={product} />
+              <Row key={product.id} product={product} />
             ))}
           </TableBody>
         </Table>
@@ -46,7 +46,11 @@ const ProductList: React.FC = () => {
   );
 };
 
-const Row: React.FC = () => {
+interface RowProps {
+  product: Product
+}
+
+const Row: React.FC<RowProps> = ({ product }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -60,11 +64,9 @@ const Row: React.FC = () => {
           {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         </IconButton>
       </TableCell>
-      <TableCell>Name</TableCell>
-      <TableCell>Name</TableCell>
-      <TableCell>Name</TableCell>
-      <TableCell>Name</TableCell>
-      <TableCell>Name</TableCell>
+      <TableCell>{product.id}</TableCell>
+      <TableCell>{product.name}</TableCell>
+      <TableCell>{product.price}</TableCell>
     </TableRow>
   );
 };
