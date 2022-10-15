@@ -36,8 +36,8 @@ const ProductList: React.FC = () => {
             <TableRow>
               <TableCell />
               <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Price</TableCell>
+              <TableCell>מוצר</TableCell>
+              <TableCell>מחיר</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

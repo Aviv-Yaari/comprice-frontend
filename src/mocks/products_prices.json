@@ -1,0 +1,30 @@
+[
+    {
+        "product_code": 24242123,
+        "store_id": 1,
+        "date": 1665861382,
+        "price": 23.90,
+        "sale": null
+    },
+    {
+        "product_code": 24242123,
+        "store_id": 2,
+        "date": 1665861382,
+        "price": 23.90,
+        "sale": null
+    },
+    {
+        "product_code": 24242123,
+        "store_id": 3,
+        "date": 1665861382,
+        "price": 21.60,
+        "sale": null
+    },
+    {
+        "product_code": 24242123,
+        "store_id": 1,
+        "date": 1665774981,
+        "price": 16.99,
+        "sale_id": 123
+    }
+]
