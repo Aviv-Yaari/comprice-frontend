@@ -1,7 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-const GlobalStyle = createGlobalStyle`
+interface Props {
+  isRTL: boolean
+}
+
+const GlobalStyle = createGlobalStyle<Props>`
    ${reset}
 
    * {
@@ -9,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
    }
 
    body {
-    /* direction: rtl; */
+    direction: ${props => props.isRTL ? 'rtl' : 'ltr'};
     font-size: 14px;
     font-family: "Inter";
    }
