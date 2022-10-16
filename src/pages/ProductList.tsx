@@ -89,7 +89,7 @@ const Row: React.FC<RowProps> = ({ product }) => {
         <TableCell>{product.store_name}</TableCell>
         <TableCell>{product.item_price}</TableCell>
         <TableCell>{product.item_price}</TableCell>
-        <TableCell>{product.price_update_date != undefined ? product.price_update_date.substring(0, 10) : 'Nan' }</TableCell>
+        <TableCell>{product.price_update_date?.substring(0, 10)}</TableCell>
       </TableRow>
       <TableRow style={{ backgroundColor: '#eeeeee', width: '100%' }}>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
